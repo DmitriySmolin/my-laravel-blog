@@ -27,11 +27,16 @@ Route::get('/test', function () {
     return 'test';
 });
 
-Route::get('/posts/store', [PostController::class, 'store']);
-Route::get('/posts/index', [PostController::class, 'index']);
-Route::get('/posts/{post}/show', [PostController::class, 'show']);
-Route::get('/posts/{post}/update', [PostController::class, 'update']);
-Route::get('/posts/{post}/destroy', [PostController::class, 'destroy']);
+//Route::get('/posts', [PostController::class, 'index']);
+//Route::get('/posts/create', [PostController::class, 'create']);
+//Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+//Route::get('/posts/{post}', [PostController::class, 'show']);
+//Route::post('/posts', [PostController::class, 'store']);
+//Route::patch('/posts/{post}', [PostController::class, 'update']);
+//Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+
+Route::resource('posts', PostController::class);
+
 
 Route::get('category/store', [CategoryController::class, 'store']);
 Route::get('category/index', [CategoryController::class, 'index']);
