@@ -1,2 +1,2 @@
 php artisan make:controller Api/PostController -m Post -r --api -R
->php artisan make:request Api/Post/UpdateRequest
+php artisan make:request Api/Post/UpdateRequest
