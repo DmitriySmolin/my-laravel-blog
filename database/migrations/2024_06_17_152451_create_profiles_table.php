@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('second_name')->nullable();
             $table->string('third_name')->nullable();
             $table->string('login')->unique();
+            $table->foreignId('user_id')->index()->constrained('users');
             $table->timestamps();
         });
     }

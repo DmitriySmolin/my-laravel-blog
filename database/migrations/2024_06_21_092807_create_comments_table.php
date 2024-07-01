@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('content');
             $table->string('author');
             $table->string('like');
+            $table->foreignId('profile_id')->index()->constrained('profiles');
+            $table->foreignId('post_id')->index()->constrained('posts');
             $table->timestamps();
         });
     }
