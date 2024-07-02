@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->foreignId('profile_id')->index()->constrained('profiles');
             $table->timestamps();
         });
     }

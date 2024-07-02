@@ -10,4 +10,14 @@ class Comment extends Model
     use HasFactory;
 
     protected $guarded = false;
+
+    public function post()
+    {
+        return $this->belogsTo(Post::class);
+    }
+
+    public function profile()
+    {
+        return $this->belongsTo(Profile::class);
+    }
 }
