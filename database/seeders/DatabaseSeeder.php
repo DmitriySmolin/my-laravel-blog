@@ -3,9 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Profile;
+use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Database\Seeders\PostSeeder;
-use Database\Seeders\CategorySeeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,8 +26,29 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        $user = [
+            'name' => 'user',
+            'email' => 'user@mail.ru',
+            'password' => Hash::make(123123123)
+        ];
+
+        $user = User::firstOrCreate(
+            [
+                'email' => $user['email'],
+            ],
+            [
+                'name' => $user['name'],
+                'password' => $user['password']
+            ]
+        );
+
+        Profile::firstOrCreate([
+            'user_id' => $user->id
+        ]);
+
         $this->call([
-            CategorySeeder::Class,
+            CategorySeeder::class,
+            TagSeeder::class,
             PostSeeder::class
         ]);
     }
