@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
-            $table->string('author');
-            $table->string('like');
+            $table->text('content')->nullable();
+            $table->string('author')->nullable();
+            $table->string('like')->nullable();
             $table->foreignId('profile_id')->index()->constrained('profiles');
             $table->foreignId('post_id')->index()->constrained('posts');
             $table->timestamps();

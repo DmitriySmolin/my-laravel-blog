@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Models\Post;
 
 class GoCommand extends Command
 {
@@ -25,6 +26,7 @@ class GoCommand extends Command
      */
     public function handle()
     {
-        dd(11111);
+        // dd(11111);
+        dd(Post::all());
     }
 }
