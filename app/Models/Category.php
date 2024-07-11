@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Post;
-use App\Models\Comment;
+
 
 class Category extends Model
 {
@@ -18,7 +19,13 @@ class Category extends Model
         return $this->hasMany(Post::class);
     }
 
-    public function comments(){
+    public function comments()
+    {
         return $this->hasManyThrough(Comment::class, Post::Class);
+    }
+
+    public function comment()
+    {
+        return $this->hasOneThrough(Comment::class, Post::Class)->latest();
     }
 }
