@@ -13,11 +13,21 @@ class Comment extends Model
 
     public function post()
     {
-        return $this->belogsTo(Post::class);
+        return $this->belongsTo(Post::class);
     }
 
     public function profile()
     {
         return $this->belongsTo(Profile::class);
+    }
+
+    public function category()
+    {
+        return $this->post->category();
+    }
+
+    public function user()
+    {
+        return $this->profile->user();
     }
 }

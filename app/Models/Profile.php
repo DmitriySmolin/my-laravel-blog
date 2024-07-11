@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Post;
 use App\Models\Role;
+use App\Models\Profile;
 use App\Models\Comment;
+use App\Models\User;
 
 class Profile extends Model
 {
@@ -22,6 +24,10 @@ class Profile extends Model
     public function role()
     {
         return $this->hasOne(Role::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
     public function comments()
