@@ -30,4 +30,9 @@ class Comment extends Model
     {
         return $this->profile->user();
     }
+
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
 }

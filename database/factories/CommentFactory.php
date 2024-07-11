@@ -21,7 +21,7 @@ class CommentFactory extends Factory
         return [
             'content' => fake()->text,
             'profile_id' => Profile::first()->id,
-            'post_id' => Post::inRandomOrder()->first()->id
+//            'post_id' => Post::inRandomOrder()->first()->id
         ];
     }
 }

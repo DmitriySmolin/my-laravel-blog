@@ -43,7 +43,11 @@ class GoCommand extends Command
         // $comment = Comment::first();
         // dd($comment->user->toArray());
 
-        $profile = Profile::first();
-        dd($profile->profileable->toArray());
+//        $profile = Profile::first();
+//        dd($profile->profileable->toArray());
+//        $post = Post::first();
+//        dd($post->comments->toArray());
+        $comment = Comment::first();
+        dd($comment->commentable->toArray());
     }
 }
