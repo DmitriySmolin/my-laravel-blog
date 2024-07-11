@@ -42,9 +42,10 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        Profile::firstOrCreate([
-            'user_id' => $user->id
-        ]);
+        // Profile::firstOrCreate([
+        //     'user_id' => $user->id
+        // ]);
+        $user->profile()->create();
 
         $this->call([
             CategorySeeder::class,

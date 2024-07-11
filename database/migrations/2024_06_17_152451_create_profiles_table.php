@@ -22,7 +22,10 @@ return new class extends Migration {
             $table->string('second_name')->nullable();
             $table->string('third_name')->nullable();
             $table->string('login')->unique()->nullable();
-            $table->foreignId('user_id')->index()->constrained('users');
+            // $table->foreignId('user_id')->index()->constrained('users');
+            // $table->unsignedByInteger('profileable_id')->index();
+            // $table->string('profileable_type')->index();
+            $table->morphs('profileable');
             $table->timestamps();
         });
     }

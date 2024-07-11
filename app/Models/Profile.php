@@ -34,4 +34,9 @@ class Profile extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function profileable()
+    {
+        return $this->morphTo();
+    }
 }

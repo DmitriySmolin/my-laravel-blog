@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 use App\Models\Post;
 use App\Models\Comment;
 use App\Models\User;
+use App\Models\Profile;
 
 class GoCommand extends Command
 {
@@ -35,11 +36,14 @@ class GoCommand extends Command
         // $comment = Comment::first();
         // dd($comment->category->toArray());
 
-        $user = User::first();
+        // $user = User::first();
         // dd($user->comments->toArray());
         // dd($user->comment->toArray());
 
-        $comment = Comment::first();
-        dd($comment->user->toArray());
+        // $comment = Comment::first();
+        // dd($comment->user->toArray());
+
+        $profile = Profile::first();
+        dd($profile->profileable->toArray());
     }
 }
