@@ -38,4 +38,18 @@ class Profile extends Model
     {
         return $this->morphTo();
     }
+
+    public function likedPosts()
+    {
+        return $this->morphedByMany(Post::class, 'likeable', 'likeable');
+    }
+
+    public function likedProducts()
+    {
+    }
+
+    public function likedComments()
+    {
+
+    }
 }

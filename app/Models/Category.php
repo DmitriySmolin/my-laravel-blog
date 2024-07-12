@@ -21,7 +21,7 @@ class Category extends Model
 
     public function comments()
     {
-        return $this->hasManyThrough(Comment::class, Post::Class);
+        return $this->hasManyThrough(Comment::class, Post::Class, 'category_id', 'commentable_id', 'id', 'id');
     }
 
     public function comment()
