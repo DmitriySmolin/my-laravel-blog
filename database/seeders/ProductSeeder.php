@@ -2,18 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Comment;
-use App\Models\Profile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Product;
 
-class CommentSeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-//        Comment::factory(2)->create();
+        Product::factory(30)->create();
     }
 }

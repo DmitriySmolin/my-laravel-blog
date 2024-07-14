@@ -46,14 +46,21 @@ class User extends Authenticatable
     //     return $this->hasOne(Profile::class);
     // }
 
+//    public function comments()
+//    {
+//        return $this->hasManyThrough(Comment::class, Profile::Class);
+//    }
+
     public function comments()
     {
-        return $this->hasManyThrough(Comment::class, Profile::Class);
+        return $this->hasManyThrough(Comment::class, Profile::class, 'profileable_id', 'profile_id')
+            ->where('profileable_type', User::class);
     }
 
     public function comment()
     {
-        return $this->hasOneThrough(Comment::class, Profile::Class)->latest();
+        return $this->hasOneThrough(Comment::class, Profile::class, 'profileable_id', 'profile_id')
+            ->where('profileable_type', User::class)->latest();
     }
 
     public function profile()

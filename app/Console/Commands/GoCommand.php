@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Comment;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Product;
 
 class GoCommand extends Command
 {
@@ -30,24 +31,32 @@ class GoCommand extends Command
      */
     public function handle()
     {
-        // $category = Category::find(5);
-//        dd($category->comments->toArray());
+         $category = Category::find(7);
+        dd($category->comments->toArray());
         // dd($category->comment->toArray());
         // $comment = Comment::first();
         // dd($comment->category->toArray());
 
-        // $user = User::first();
-        // dd($user->comments->toArray());
-        // dd($user->comment->toArray());
+//         $user = User::first();
+//         dd($user->comments->toArray());
+//         dd($user->comment->toArray());
 
         // $comment = Comment::first();
         // dd($comment->user->toArray());
 
 //        $profile = Profile::first();
 //        dd($profile->profileable->toArray());
+//        $product = Product::first();
+//        dd($product->comments->toArray());
 //        $post = Post::first();
 //        dd($post->comments->toArray());
-        $comment = Comment::first();
-        dd($comment->commentable->toArray());
+//        $comment = Comment::first();
+//        dd($comment->commentable->toArray());
+
+//        $profile = Profile::first();
+//        dd($profile->likedPosts->toArray());
+//        $post = Post::first();
+//        dd($post->likedByProfiles->toArray());
+//        $profile->likedPosts()->attach([5]);
     }
 }

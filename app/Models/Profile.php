@@ -25,7 +25,8 @@ class Profile extends Model
         return $this->hasOne(Role::class);
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
@@ -33,6 +34,11 @@ class Profile extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+//    public function comments()
+//    {
+//        $this->morphedByMany()Many(Profile::class, 'profileable');
+//    }
 
     public function profileable()
     {
