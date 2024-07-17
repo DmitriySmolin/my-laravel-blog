@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -51,21 +52,36 @@ class User extends Authenticatable
 //        return $this->hasManyThrough(Comment::class, Profile::Class);
 //    }
 
-    public function comments()
-    {
-        return $this->hasManyThrough(Comment::class, Profile::class, 'profileable_id', 'profile_id')
-            ->where('profileable_type', User::class);
-    }
-
-    public function comment()
-    {
-        return $this->hasOneThrough(Comment::class, Profile::class, 'profileable_id', 'profile_id')
-            ->where('profileable_type', User::class)->latest();
-    }
-
     public function profile()
     {
         return $this->morphOne(Profile::class, 'profileable');
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class,'taggable');
+    }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    // public function comments()
+    // {
+    //     return $this->hasManyThrough(Comment::class, Profile::class, 'profileable_id', 'profile_id')
+    //         ->where('profileable_type', User::class);
+    // }
+
+    // public function comment()
+    // {
+    //     return $this->hasOneThrough(Comment::class, Profile::class, 'profileable_id', 'profile_id')
+    //         ->where('profileable_type', User::class)->latest();
+    // }
 
 }

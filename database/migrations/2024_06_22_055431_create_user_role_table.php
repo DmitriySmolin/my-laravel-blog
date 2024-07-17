@@ -8,25 +8,22 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('user_role', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->foreignId('user_id')->index()->constrained('users');
+            $table->foreignId('role_id')->index()->constrained('roles');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('user_role');
     }
 };

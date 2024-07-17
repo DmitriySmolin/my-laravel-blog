@@ -18,8 +18,6 @@ return new class extends Migration
             $table->text('content')->nullable();
             $table->string('author')->nullable();
             $table->string('like')->nullable();
-            $table->foreignId('profile_id')->index()->constrained('profiles');
-//            $table->foreignId('post_id')->index()->constrained('posts');
             $table->morphs('commentable');
             $table->timestamps();
         });

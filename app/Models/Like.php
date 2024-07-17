@@ -4,16 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 
-class Role extends Model
+class Like extends Model
 {
     use HasFactory;
 
     protected $guarded = false;
 
-    public function users()
+    public function likeable()
     {
-        return $this->belongsToMany(Users::class);
-    }  
+        return $this->morphTo();
+    }
 }

@@ -31,8 +31,8 @@ class GoCommand extends Command
      */
     public function handle()
     {
-         $category = Category::find(7);
-        dd($category->comments->toArray());
+        //  $category = Category::find(7);
+        // dd($category->comments->toArray());
         // dd($category->comment->toArray());
         // $comment = Comment::first();
         // dd($comment->category->toArray());
@@ -58,5 +58,8 @@ class GoCommand extends Command
 //        $post = Post::first();
 //        dd($post->likedByProfiles->toArray());
 //        $profile->likedPosts()->attach([5]);
+           
+        $post = Post::find(1);
+        dd($post->likes->toArray());
     }
 }

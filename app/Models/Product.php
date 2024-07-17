@@ -10,8 +10,19 @@ class Product extends Model
 {
     use HasFactory;
 
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class,'taggable');
+    }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
     public function comments()
     {
         return $this->morphMany(Comment::class,'commentable');
     }
+
 }

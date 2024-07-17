@@ -11,26 +11,6 @@ class Comment extends Model
 
     protected $guarded = false;
 
-    public function post()
-    {
-        return $this->belongsTo(Post::class);
-    }
-
-    public function profile()
-    {
-        return $this->belongsTo(Profile::class);
-    }
-
-    public function category()
-    {
-        return $this->post->category();
-    }
-
-    public function user()
-    {
-        return $this->profile->user();
-    }
-
     public function commentable()
     {
         return $this->morphTo();

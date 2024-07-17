@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->date('published_at')->nullable();
             $table->string('image_path')->nullable();
             $table->unsignedSmallInteger('status')->default(1);
-            $table->foreignId('profile_id')->index()->constrained('profiles');
+            $table->foreignId('user_id')->index()->constrained('users');
             $table->foreignId('category_id')->index()->constrained('categories');
             $table->timestamps();
         });

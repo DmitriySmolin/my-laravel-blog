@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Role;
 use App\Models\Comment;
 use App\Models\User;
+use App\Models\Product;
 
 class Profile extends Model
 {
@@ -15,47 +16,8 @@ class Profile extends Model
 
     protected $guarded = false;
 
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
-
-    public function role()
-    {
-        return $this->hasOne(Role::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-
-//    public function comments()
-//    {
-//        $this->morphedByMany()Many(Profile::class, 'profileable');
-//    }
-
     public function profileable()
     {
         return $this->morphTo();
-    }
-
-    public function likedPosts()
-    {
-        return $this->morphedByMany(Post::class, 'likeable', 'likeable');
-    }
-
-    public function likedProducts()
-    {
-    }
-
-    public function likedComments()
-    {
-
     }
 }
