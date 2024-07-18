@@ -26,33 +26,34 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $user = [
-            'name' => 'user',
-            'email' => 'user@mail.ru',
-            'password' => Hash::make(123123123)
-        ];
+        // $user = [
+        //     'name' => 'user',
+        //     'email' => 'user@mail.ru',
+        //     'password' => Hash::make(123123123)
+        // ];
 
-        $user = User::firstOrCreate(
-            [
-                'email' => $user['email'],
-            ],
-            [
-                'name' => $user['name'],
-                'password' => $user['password']
-            ]
-        );
+        // $user = User::firstOrCreate(
+        //     [
+        //         'email' => $user['email'],
+        //     ],
+        //     [
+        //         'name' => $user['name'],
+        //         'password' => $user['password']
+        //     ]
+        // );
 
         // Profile::firstOrCreate([
         //     'user_id' => $user->id
         // ]);
-        $user->profile()->create();
+        // $user->profile()->create();
 
         $this->call([
-            CategorySeeder::class,
-            TagSeeder::class,
-            PostSeeder::class,
-            ProductSeeder::class,
-            CommentSeeder::class
+               UserSeeder::class,
+               CategorySeeder::class,
+            // TagSeeder::class,
+            // PostSeeder::class,
+            // ProductSeeder::class,
+            // CommentSeeder::class
         ]);
     }
 }

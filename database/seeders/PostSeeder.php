@@ -14,10 +14,12 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        $posts = Post::factory(30)->create();
         $tags = Tag::all();
-        foreach ($posts as $post) {
-            $post->tags()->attach($tags->random(5)->pluck('id'));
-        }
+        Post::factory(30)->create()->each(function ($post) use ($tags) {
+            $post->tags()->attach(
+                $tags->random(5)->pluck('id')->toArray(),
+                ['taggable_type' => Post::class]
+            );
+        });
     }
 }

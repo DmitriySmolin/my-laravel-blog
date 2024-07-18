@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Category;
 use App\Models\Profile;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -24,8 +25,8 @@ class PostFactory extends Factory
             'description' => fake()->text(50),
             'published_at' => fake()->date,
             'image_path' => fake()->imageUrl,
-            'profile_id' => Profile::first()->id,
-            'category_id' => Category::inRandomOrder()->first()->id
+            'user_id' => User::inRandomOrder()->first()->id,
+            'category_id' => Category::inRandomOrder()->first()->id,
         ];
     }
 }
